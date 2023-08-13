@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSlider-Images</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section>
+        <div class="banner">
+            <img src="1.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="1.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="2.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="3.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="4.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="5.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="6.jpg" alt="">
+        </div>
+    </section>
+    <script>
+        var boxes = document.querySelectorAll('.box');
+
+        boxes.forEach((box)=>{
+            box.addEventListener('click',()=>{
+                boxes.forEach((otherbox)=>{
+                    otherbox.classList.remove('width');
+                    otherbox.style.transform = 'scale(0)'
+                })
+                box.classList.add('width');
+                box.style.transform = 'scale(1)';
+              var img = box.querySelector('img')
+           document.querySelector('.banner img').src = img.src
+
+
+                if(box.classList.contains('width')){
+                    var span = document.createElement('span');
+                    span.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                    box.appendChild(span);
+
+                    span.addEventListener('click',(e)=>{
+                        e.stopPropagation();
+                       
+                        boxes.forEach((other)=>{
+                            other.style.transform ='scale(1)';
+                        })
+                        box.classList.remove('width')
+                        span.textContent=''
+                        box.removeChild(span)
+                    })
+                 
+                }
+            })
+        })
+    </script>
+</body>
+</html>

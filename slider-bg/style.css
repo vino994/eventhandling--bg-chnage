@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+section{
+    min-height: 100vh;
+
+    display: flex;
+    gap: 10px;
+}
+.banner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: grayscale(1);
+    z-index: -1;
+}
+.banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.box{
+    width: 250px;
+    height: 100vh;
+    transition: 3s;
+    cursor: pointer;
+}
+.box img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+}
+.width{
+    width: 2000px;
+}
+.width img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+}
+span{
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    color: white;
+    right: 30px;
+    cursor: pointer;
+}
